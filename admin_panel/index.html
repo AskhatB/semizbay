@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Админ панель</title>
+	<link rel="stylesheet" href="main.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<script src="https://use.fontawesome.com/7cda8fcf2d.js"></script>
+</head>
+<body>
+	<div id="main">
+		<button class="add_new" @click="showingAddModal = true">Добавить пользователя</button>
+		<p class="error_message" v-if="errorMessage">{{errorMessage}}</p>
+		<p class="success_message" v-if="successMessage">{{successMessage}}</p>
+			<div class="users_list_wrapper">
+				<table class="list">
+					<tr>
+						<th>Фамилия</th>
+						<th>Имя</th>
+						<th>Отчество</th>
+						<th>ИИН</th>
+						<th>Участок</th>
+						<th>Должность</th>
+						<th>Исправить</th>
+						<th>Удалить</th>
+						</tr>
+					<tr v-for="user in users">
+						<td>{{user.last_name}}</td>
+						<td>{{user.first_name}}</td>
+						<td>{{user.pat_name}}</td>
+						<td>{{user.iin}}</td>
+						<td>{{user.area}}</td>
+						<td>{{user.position}}</td>
+						<td><button @click="showingEditModal = true; selectUser(user)">Исправить</button></td>
+						<td><button @click="showingDeleteModal = true; selectUser(user)">Удалить</button></td>
+					</tr>
+				</table>
+			</div>
+			<!-- ADDING NEW USER -->
+		<div class="modal_bg" id="add_modal" v-if="showingAddModal">
+			<div class="modal_container">
+				<div class="modal_header">
+					<p class="fleft">Добавление нового пользователя</p>
+					<button class="fright close_modal" @click="showingAddModal = false"><i class="fa fa-times" aria-hidden="true"></i></button>
+					<div class="clear"></div>
+				</div>
+				<div class="modal_content">
+					<div class="adding_form">
+						<input type="text" name="last_name" placeholder="Фамилия" v-model="newUser.last_name"><br>
+						<input type="text" name="first_name" placeholder="Имя" v-model="first_name"><br>
+						<input type="text" name="pat_name" placeholder="Отчество" v-model="pat_name"><br>
+						<input type="text" name="iin" placeholder="ИИН" v-model="iin"><br>
+						<input type="text" name="area" placeholder="Участок" v-model="area"><br>
+						<input type="text" name="position" placeholder="Должность" v-model="position"><br>
+						<button class="add_user_modal" @click="showingAddModal = false">Добавить</button> 
+					</div>
+				</div>
+			</div>
+		</div>
+			<!-- EDITING USER -->
+		<div class="modal_bg" id="edit_modal" v-if="showingEditModal">
+			<div class="modal_container">
+				<div class="modal_header">
+					<p class="fleft">Изменить данные о пользователе</p>
+					<button class="fright close_modal" @click="showingEditModal = false"><i class="fa fa-times" aria-hidden="true"></i></button>
+					<div class="clear"></div>
+				</div>
+				<div class="modal_content">
+					<div class="adding_form">
+						<input type="text" name="last_name" placeholder="Фамилия" v-model="clickedUser.last_name"><br>
+						<input type="text" name="first_name" placeholder="Имя" v-model="clickedUser.first_name"><br>
+						<input type="text" name="pat_name" placeholder="Отчество" v-model="clickedUser.pat_name"><br>
+						<input type="text" name="iin" placeholder="ИИН" v-model="clickedUser.iin"><br>
+						<input type="text" name="area" placeholder="Участок" v-model="clickedUser.area"><br>
+						<input type="text" name="position" placeholder="Должность" v-model="clickedUser.position"><br>
+						<button class="add_user_modal" @click="showingEditModal = false">Изменить</button>
+					</div>
+				</div>
+			</div>
+		</div>
+			<!-- DELETE USER -->
+		<div class="modal_bg" id="edit_modal" v-if="showingDeleteModal">
+			<div class="modal_container">
+				<div class="modal_header">
+					<p class="fleft">Удаление пользователя</p>
+					<button class="fright close_modal" @click="showingDeleteModal = false"><i class="fa fa-times" aria-hidden="true"></i></button>
+					<div class="clear"></div>
+				</div>
+				<div class="modal_content">
+					<p>Вы действительно хотите удалить этого пользователя?</p>
+					<button @click="showingDeleteModal = false; deleteUser()">Да</button>
+					<button @click="showingDeleteModal = false">Нет</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script src="vue.js"></script>
+	<script src="app.js"></script>
+</body>
+</html>

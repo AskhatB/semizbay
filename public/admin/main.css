@@ -1,0 +1,138 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+    font: inherit;
+	vertical-align: baseline;
+    font-family: 'Fira Sans Condensed', sans-serif;
+}
+body, html{
+    background: #E2E3E1;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+}
+ol, ul {list-style: none;}
+a{text-decoration: none; color: #fff;}
+input[value]{font-family: 'Fira Sans Condensed', sans-serif;}
+input[type="text"]{
+	outline: none; 
+	border: none; 
+	width: 120px;
+	padding: 3px;
+	height: 20px;
+	margin-left: 10px;
+	font-family: 'Fira Sans Condensed', sans-serif;
+}
+button{font-family: 'Fira Sans Condensed', sans-serif;}
+label{margin-left: 8px;}
+
+input[type="button"], button{
+	cursor: pointer;
+}
+
+.wrapper{
+	width: 1200px;
+	margin: 0 auto;
+}
+
+.form-wrap{
+	width: 1200px;
+	height: 70px;
+	background: #023351;
+	color: #fff;
+	padding: 20px 65px;
+	margin-bottom: 20px;
+	box-sizing: border-box;
+	box-shadow: 0 2px 5px rgba(0,0,0,.3);
+}
+#submit{
+	width: 70px;
+	background: #6CBD7D;
+	outline: none;
+	color: #fff;
+	line-height: 21px;
+	border-radius: 2px;
+	border: 1px solid #5B9F6A;
+	margin-left: 5px;
+}
+
+.del_empl, .edit_empl{
+	padding: 5px;
+	background: #6CBD7D;
+	border-radius: 2px;
+	border: 1px solid #5B9F6A;
+	color: #fff;
+	outline: none;
+	top: 20px;
+	position: absolute;
+}
+/*
+.del_ee, .edit_ee{
+	float: right !important;
+}
+.del_ee{
+	margin-right: 50px;
+}
+*/
+
+.del_empl{right: 30px;}
+.edit_empl{right: 100px;}
+
+.added{
+	width: 1200px;
+	height: 70px;
+	background: #fff;
+	box-shadow: 0 2px 5px rgba(0,0,0,.3);
+	box-sizing: border-box;
+	position: relative;
+	margin-top: 40px;
+	padding: 15px;
+}
+.added > div{float: left;margin-left: 55px;}
+.added > div:first-child{margin-left: 35px;}
+.added span{color: #9BACC5;}
+.added p{color: #153674;}
+
+.fix_sit{
+	background: #023351;
+	padding: 10px;
+	text-transform: uppercase;
+	font-size: 14px;
+	box-shadow: 0 2px 5px rgba(0,0,0,.1);
+}
+
+
+.loginForm{
+	width: 350px;
+	height: 350px;
+	margin: 100px auto;
+	text-align: center;
+} 
+
+#login, #password{
+	width: 250px;
+	height: 30px;
+	outline: none;
+	border: none; 
+	border-radius: 0;
+	margin-top: 15px;
+	font-family: 'Fira Sans Condensed', sans-serif;
+	padding:5px 15px !important;
+	margin-left: 0 !important;
+}
+
+#logBtn{
+	width: 250px;
+	height: 40px;
+	margin-top: 15px;
+	background: #0C3854;
+	outline: none;
+	border: 0;
+	color: #fff;
+	font-family: 'Fira Sans Condensed', sans-serif;
+	text-transform: uppercase;
+	cursor: pointer;
+
+
+}

@@ -32,7 +32,7 @@ var app = new Vue({
 		saveUser: function(){
 			//console.log(app.newsUser);
 			var formData = app.toFormData(app.newUser);
-			axios.post("some/api", formData)
+			axios.post("some/api ", formData)
 			.then(function(response){
 				//console.log(response);
 				app.newUser = {last_name: "", first_name: "", pat_name: "", iin: "", area: "", position: ""};

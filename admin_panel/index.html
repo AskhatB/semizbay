@@ -25,8 +25,8 @@
 						<th>Удалить</th>
 						</tr>
 					<tr v-for="user in users">
-						<td>{{user.last_name}}</td>
-						<td>{{user.first_name}}</td>
+						<td>{{user.l_name}}</td>
+						<td>{{user.f_name}}</td>
 						<td>{{user.pat_name}}</td>
 						<td>{{user.iin}}</td>
 						<td>{{user.area}}</td>
@@ -46,8 +46,8 @@
 				</div>
 				<div class="modal_content">
 					<div class="adding_form">
-						<input type="text" name="last_name" placeholder="Фамилия" v-model="newUser.last_name"><br>
-						<input type="text" name="first_name" placeholder="Имя" v-model="first_name"><br>
+						<input type="text" name="last_name" placeholder="Фамилия" v-model="newUser.l_name"><br>
+						<input type="text" name="first_name" placeholder="Имя" v-model="newUser.f_name"><br>
 						<input type="text" name="pat_name" placeholder="Отчество" v-model="pat_name"><br>
 						<input type="text" name="iin" placeholder="ИИН" v-model="iin"><br>
 						<input type="text" name="area" placeholder="Участок" v-model="area"><br>
@@ -67,13 +67,13 @@
 				</div>
 				<div class="modal_content">
 					<div class="adding_form">
-						<input type="text" name="last_name" placeholder="Фамилия" v-model="clickedUser.last_name"><br>
-						<input type="text" name="first_name" placeholder="Имя" v-model="clickedUser.first_name"><br>
+						<input type="text" name="last_name" placeholder="Фамилия" v-model="clickedUser.l_name"><br>
+						<input type="text" name="first_name" placeholder="Имя" v-model="clickedUser.f_name"><br>
 						<input type="text" name="pat_name" placeholder="Отчество" v-model="clickedUser.pat_name"><br>
 						<input type="text" name="iin" placeholder="ИИН" v-model="clickedUser.iin"><br>
 						<input type="text" name="area" placeholder="Участок" v-model="clickedUser.area"><br>
 						<input type="text" name="position" placeholder="Должность" v-model="clickedUser.position"><br>
-						<button class="add_user_modal" @click="showingEditModal = false">Изменить</button>
+						<button class="add_user_modal" @click="showingEditModal = false; updateUser();">Изменить</button>
 					</div>
 				</div>
 			</div>

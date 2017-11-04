@@ -7,8 +7,8 @@ var app = new Vue({
 		errorMessage: "",
 		successMessage: "",
 		users: [],
-		newsUser: {last_name: "", first_name: "", pat_name: "", iin: "", area: "", position: ""},
-		clikedUser: {}
+		newUser: {l_name: "", f_name: "", pat_name: "", iin: "", area: "", position: ""},
+		clickedUser: {}
 	},
 
 	mounted: function(){
@@ -24,7 +24,7 @@ var app = new Vue({
 				if(response.data.error){
 					app.errorMessage = response.data.message;
 				}else{
-					app.users = response.data.users;
+					app.users = response.data;
 				}
 			});
 		},
@@ -35,7 +35,7 @@ var app = new Vue({
 			axios.post("some/api ", formData)
 			.then(function(response){
 				//console.log(response);
-				app.newUser = {last_name: "", first_name: "", pat_name: "", iin: "", area: "", position: ""};
+				app.newUser = {l_name: "", f_name: "", pat_name: "", iin: "", area: "", position: ""};
 				if(response.data.error){
 					app.errorMessage = response.data.message;
 				}else{
@@ -46,11 +46,11 @@ var app = new Vue({
 
 		updateUser: function(){
 			//console.log(app.newsUser);
-			var formData = app.toFormData(app.clikedUser);
-			axios.post("some/api", formData)
+			var formData = app.toFormData(app.clickedUser);
+			axios.post("http://localhost:8000/api/users", formData)
 			.then(function(response){
 				//console.log(response);
-				app.clikedUser = {};
+				app.clickedUser = {};
 				if(response.data.error){
 					app.errorMessage = response.data.message;
 				}else{
@@ -78,7 +78,7 @@ var app = new Vue({
 
 
 		selectUser: function(user){
-			app.clikedUser = user;
+			app.clickedUser = user;
 		},
 
 		toFormData: function(obj){

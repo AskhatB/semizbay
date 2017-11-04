@@ -48,11 +48,12 @@
 					<div class="adding_form">
 						<input type="text" name="last_name" placeholder="Фамилия" v-model="newUser.l_name"><br>
 						<input type="text" name="first_name" placeholder="Имя" v-model="newUser.f_name"><br>
-						<input type="text" name="pat_name" placeholder="Отчество" v-model="pat_name"><br>
-						<input type="text" name="iin" placeholder="ИИН" v-model="iin"><br>
-						<input type="text" name="area" placeholder="Участок" v-model="area"><br>
-						<input type="text" name="position" placeholder="Должность" v-model="position"><br>
-						<button class="add_user_modal" @click="showingAddModal = false">Добавить</button> 
+						<input type="text" name="pat_name" placeholder="Отчество" v-model="newUser.pat_name"><br>
+						<input type="text" name="iin" placeholder="ИИН"
+						v-model="newUser.iin"><br>
+						<input type="text" name="area" placeholder="Участок" v-model="newUser.area"><br>
+						<input type="text" name="position" placeholder="Должность" v-model="newUser.position"><br>
+						<button class="add_user_modal" @click="showingAddModal = false; saveUser();">Добавить</button> 
 					</div>
 				</div>
 			</div>

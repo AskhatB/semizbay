@@ -18,7 +18,7 @@ var app = new Vue({
 
 	methods: {
 		getAllUsers: function(){
-			axios.get("some/api")
+			axios.get("http://localhost:8000/api/users")
 			.then(function(response){
 				//console.log(response);
 				if(response.data.error){

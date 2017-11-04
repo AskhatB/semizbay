@@ -6,13 +6,14 @@
   <link rel="shortcut icon" href="" type="image/ico">
   <link href="https://fonts.googleapis.com/css?family=Fira+Sans+Condensed:300,400,700" rel="stylesheet">
   <title>templates</title>
+
   <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
   <div class="main">
-    
-   
-   
+
+
+
    @foreach($events as $event)
    @if(empty($event->works))
    @if(!empty($event->file1))
@@ -27,15 +28,7 @@
    @endforeach
    
    
-   
-  <!-- <div class="content"><img src="img/add_photo.png" alt=""><div class="inf-more">Информация</div></div>
-  <div class="content"><img src="img/add_photo.png" alt=""><div class="inf-more">Информация</div></div>
-  <div class="content"><img src="img/add_photo.png" alt=""><div class="inf-more">Информация</div></div> -->
-</div>
-<!-- <script src="libs/jquery-3.1.1.min.js"></script>
-<script src="libs/prefixfree.min.js"></script>
-<script src="libs/jquery.magnific-popup.min.js"></script>
-<script src="libs/jquery.viewportchecker.min.js"></script>
-<script src="js/common.js"></script> -->
+
+ </div>
 </body>
 </html>

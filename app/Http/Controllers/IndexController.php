@@ -254,7 +254,10 @@ class IndexController extends Controller
 
 	public function mobileEvents()
 	{
+
 		$events  = new_image::orderBy('id','DESC')->get();
+
+
 		return view('mobile.events') -> with([
 			'events' => $events
 			]);

@@ -23,14 +23,16 @@ body{
 .list th{
 	background: #009AFC;
 	color: #fff;
-	height: 30px;
+	height: 40px;
 	word-wrap: break-word;
+	box-shadow: 0px 0px 1px rgba(0, 0, 0, .8);
 }
 
 .list td{
 	background: #fff;
 	word-wrap: break-word;
 	text-align: center;
+	padding: 15px 15px;
 }
 
 .modal_bg{
@@ -91,7 +93,7 @@ body{
 	height: 30px;
 	outline: none;
 	margin-bottom: 5px;
-	padding: 5px;
+	padding: 15px 5px;
 	box-sizing: border-box;
 }
 
@@ -112,4 +114,35 @@ body{
 	background: #6cd476;
 	color: #266c2d;
 	border-left: 5px solid #266c2d;
+}
+
+.add_new{
+	width: 200px;
+	height: 40px;
+	margin: 15px 0 0 15px;
+	background: #009AFC;
+	font-size: 14px;
+	border: 0;
+	color: #fff;
+	font-family: 'Roboto', sans-serif;
+	cursor: pointer;
+}
+
+.list tr td button{
+	padding: 10px 15px;
+	background: #009AFC;
+	font-family: 'Roboto', sans-serif;
+	font-size: 14px;
+	border: 0;
+	color:#fff;
+	cursor: pointer;
+}
+
+.text_heading{
+	text-transform: uppercase;
+	padding: 15px;
+}
+
+.text_paragraph{
+	padding: 0 0 15px 15px;
 }

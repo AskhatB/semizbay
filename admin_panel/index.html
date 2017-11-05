@@ -8,8 +8,11 @@
 	<script src="https://use.fontawesome.com/7cda8fcf2d.js"></script>
 </head>
 <body>
+	<h1 class="text_heading">semyzbay-u.kapsafety</h1>
+	<p class="text_paragraph">Список работников</p>
+	<hr>
 	<div id="main">
-		<button class="add_new" @click="showingAddModal = true">Добавить пользователя</button>
+		<button class="add_new" @click="showingAddModal = true"><i class="fa fa-plus" aria-hidden="true"></i> Добавить пользователя</button>
 		<p class="error_message" v-if="errorMessage">{{errorMessage}}</p>
 		<p class="success_message" v-if="successMessage">{{successMessage}}</p>
 			<div class="users_list_wrapper">
@@ -31,8 +34,10 @@
 						<td>{{user.iin}}</td>
 						<td>{{user.area}}</td>
 						<td>{{user.position}}</td>
-						<td><button @click="showingEditModal = true; selectUser(user)">Исправить</button></td>
-						<td><button @click="showingDeleteModal = true; selectUser(user)">Удалить</button></td>
+						<td><button @click="showingEditModal = true; selectUser(user)"><i class="fa fa-pencil" aria-hidden="true"></i>
+ Исправить</button></td>
+						<td><button @click="showingDeleteModal = true; selectUser(user)"><i class="fa fa-trash-o" aria-hidden="true"></i>
+ Удалить</button></td>
 					</tr>
 				</table>
 			</div>

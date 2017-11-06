@@ -25,7 +25,6 @@ body{
 	color: #fff;
 	height: 40px;
 	word-wrap: break-word;
-	box-shadow: 0px 0px 1px rgba(0, 0, 0, .8);
 }
 
 .list td{
@@ -42,6 +41,7 @@ body{
 	top: 0;
 	bottom: 0;
 	background: rgba(0, 0, 0, 0.5);
+	transition: all 1s;
 }
 
 .modal_container{
@@ -86,6 +86,7 @@ body{
 	cursor: pointer;
 	font-family: 'Roboto', sans-serif;
 	font-size: 14px;
+	border-radius: 3px;
 }
 
 .adding_form input{
@@ -141,8 +142,20 @@ body{
 .text_heading{
 	text-transform: uppercase;
 	padding: 15px;
+	color: #474747;
 }
 
 .text_paragraph{
 	padding: 0 0 15px 15px;
+	color: #474747;
+}
+
+.delete_btn_{
+	width: 155px;
+	height: 50px;
+	border: 0;
+	outline: none;
+	cursor: pointer;
+	font-family: 'Roboto', sans-serif;
+	font-size: 14px;
 }

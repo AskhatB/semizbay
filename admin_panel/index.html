@@ -8,7 +8,7 @@
 	<script src="https://use.fontawesome.com/7cda8fcf2d.js"></script>
 </head>
 <body>
-	<h1 class="text_heading">semyzbay-u.kapsafety</h1>
+	<h1 class="text_heading"><i class="fa fa-users" aria-hidden="true"></i> semyzbay-u.kapsafety</h1>
 	<p class="text_paragraph">Список работников</p>
 	<hr>
 	<div id="main">
@@ -24,8 +24,8 @@
 						<th>ИИН</th>
 						<th>Участок</th>
 						<th>Должность</th>
-						<th>Исправить</th>
-						<th>Удалить</th>
+						<th><i class="fa fa-pencil" aria-hidden="true"></i></th>
+						<th><i class="fa fa-trash-o" aria-hidden="true"></i></th>
 						</tr>
 					<tr v-for="user in users">
 						<td>{{user.l_name}}</td>
@@ -93,9 +93,13 @@
 					<div class="clear"></div>
 				</div>
 				<div class="modal_content">
+					<br><br>
 					<p>Вы действительно хотите удалить этого пользователя?</p>
-					<button @click="showingDeleteModal = false; deleteUser()">Да</button>
-					<button @click="showingDeleteModal = false">Нет</button>
+					<br><br><br><br>
+					<br>
+					<br>
+					<button @click="showingDeleteModal = false; deleteUser()" class="delete_btn_">Да</button>
+					<button @click="showingDeleteModal = false" class="delete_btn_">Нет</button>
 				</div>
 			</div>
 		</div>

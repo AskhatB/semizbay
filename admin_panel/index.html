@@ -15,33 +15,33 @@
 		<button class="add_new" @click="showingAddModal = true"><i class="fa fa-plus" aria-hidden="true"></i> Добавить пользователя</button>
 		<p class="error_message" v-if="errorMessage">{{errorMessage}}</p>
 		<p class="success_message" v-if="successMessage">{{successMessage}}</p>
-			<div class="users_list_wrapper">
-				<table class="list">
-					<tr>
-						<th>Фамилия</th>
-						<th>Имя</th>
-						<th>Отчество</th>
-						<th>ИИН</th>
-						<th>Участок</th>
-						<th>Должность</th>
-						<th><i class="fa fa-pencil" aria-hidden="true"></i></th>
-						<th><i class="fa fa-trash-o" aria-hidden="true"></i></th>
-						</tr>
-					<tr v-for="user in users">
-						<td>{{user.l_name}}</td>
-						<td>{{user.f_name}}</td>
-						<td>{{user.pat_name}}</td>
-						<td>{{user.iin}}</td>
-						<td>{{user.area}}</td>
-						<td>{{user.position}}</td>
-						<td><button @click="showingEditModal = true; selectUser(user)"><i class="fa fa-pencil" aria-hidden="true"></i>
- Исправить</button></td>
-						<td><button @click="showingDeleteModal = true; selectUser(user)"><i class="fa fa-trash-o" aria-hidden="true"></i>
- Удалить</button></td>
-					</tr>
-				</table>
-			</div>
-			<!-- ADDING NEW USER -->
+		<div class="users_list_wrapper">
+			<table class="list">
+				<tr>
+					<th>Фамилия</th>
+					<th>Имя</th>
+					<th>Отчество</th>
+					<th>ИИН</th>
+					<th>Участок</th>
+					<th>Должность</th>
+					<th><i class="fa fa-pencil" aria-hidden="true"></i></th>
+					<th><i class="fa fa-trash-o" aria-hidden="true"></i></th>
+				</tr>
+				<tr v-for="user in users">
+					<td>{{user.l_name}}</td>
+					<td>{{user.f_name}}</td>
+					<td>{{user.pat_name}}</td>
+					<td>{{user.iin}}</td>
+					<td>{{user.nameLocation}}</td>
+					<td>{{user.position}}</td>
+					<td><button @click="showingEditModal = true; selectUser(user)"><i class="fa fa-pencil" aria-hidden="true"></i>
+					Исправить</button></td>
+					<td><button @click="showingDeleteModal = true; selectUser(user)"><i class="fa fa-trash-o" aria-hidden="true"></i>
+					Удалить</button></td>
+				</tr>
+			</table>
+		</div>
+		<!-- ADDING NEW USER -->
 		<div class="modal_bg" id="add_modal" v-if="showingAddModal">
 			<div class="modal_container">
 				<div class="modal_header">
@@ -63,7 +63,7 @@
 				</div>
 			</div>
 		</div>
-			<!-- EDITING USER -->
+		<!-- EDITING USER -->
 		<div class="modal_bg" id="edit_modal" v-if="showingEditModal">
 			<div class="modal_container">
 				<div class="modal_header">
@@ -84,7 +84,7 @@
 				</div>
 			</div>
 		</div>
-			<!-- DELETE USER -->
+		<!-- DELETE USER -->
 		<div class="modal_bg" id="edit_modal" v-if="showingDeleteModal">
 			<div class="modal_container">
 				<div class="modal_header">

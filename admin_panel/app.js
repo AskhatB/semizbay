@@ -7,6 +7,7 @@ var app = new Vue({
 		errorMessage: "",
 		successMessage: "",
 		users: [],
+		areas:[],
 		newUser: {l_name: "", f_name: "", pat_name: "", iin: "", area: "", position: ""},
 		clickedUser: {}
 	},
@@ -20,7 +21,6 @@ var app = new Vue({
 		getAllUsers: function(){
 			axios.get("http://localhost:8000/api/users")
 			.then(function(response){
-				//console.log(response);
 				if(response.data.error){
 					app.errorMessage = response.data.message;
 				}else{

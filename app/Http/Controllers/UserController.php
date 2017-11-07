@@ -13,8 +13,11 @@ class UserController extends Controller
 {
 	public function index(){
 
-		$users = User::orderBy('id', 'desc')->get();
-
+		$users = DB::table('users')
+					->join('areas', 'users.area_id','=','areas.id')
+					->select('*')
+					->orderBy('users.id', 'DESC')
+					->get(); 
 		return $users;
 	}
 

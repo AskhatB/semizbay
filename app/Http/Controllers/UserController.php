@@ -39,6 +39,9 @@ class UserController extends Controller
 		if($userCreate){
 			return response()
 			->json(['message' => 'Пользователь успешно добавлен.']);
+		} else {
+			return response()
+			->json(['message' => 'Ошибка.']);
 		}
 	}
 

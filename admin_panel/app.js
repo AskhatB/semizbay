@@ -102,8 +102,8 @@ var app = new Vue({
 
 
 	selectUser: function(user){
+		app.selected = user.area_id;
 		app.clickedUser = user;
-		console.log(app.clickedUser);
 	},
 
 	toFormData: function(obj){

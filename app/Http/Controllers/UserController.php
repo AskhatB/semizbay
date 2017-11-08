@@ -14,10 +14,10 @@ class UserController extends Controller
 	public function index(){
 
 		$users = DB::table('users')
-					->join('areas', 'users.area_id','=','areas.id')
-					->select('*')
-					->orderBy('users.id', 'DESC')
-					->get(); 
+		->join('areas', 'users.area_id','=','areas.id')
+		->select('users.*','areas.nameLocation')
+		->orderBy('users.id', 'DESC')
+		->get(); 
 		return $users;
 	}
 
@@ -30,13 +30,15 @@ class UserController extends Controller
 		$user->pat_name = $request->pat_name;
 		$user->iin = $request->iin;
 		$user->position = $request->position;
+		$user->area_id = $request->area_id;
 
 		$userCreate = User::create([
 			'l_name'=>$user->l_name,
 			'f_name'=>$user->f_name,
 			'pat_name'=>$user->pat_name,
 			'iin'=>$user->iin,
-			'position'=>$user->position
+			'position'=>$user->position,
+			'area_id' => $user->area_id
 		]);
 
 		if($userCreate){
@@ -58,7 +60,7 @@ class UserController extends Controller
 		$user->pat_name = $request->pat_name;
 		$user->iin = $request->iin;
 		$user->position = $request->position;
-
+		$user->area_id = $request->area_id;
 
 		$userUpdate = DB::table('users')
 		->where('id', $user->id)
@@ -66,24 +68,30 @@ class UserController extends Controller
 			'f_name'=>$user->f_name,
 			'pat_name'=>$user->pat_name,
 			'iin'=>$user->iin,
-			'position'=>$user->position
+			'position'=>$user->position,
+			'area_id' => $user->area_id
 		]);
 
 		if($userUpdate){
 			return response()
-			->json(['message'=>'Пользователь был успешно изменен.']);
+			->json(['successMessage'=>'Пользователь был успешно изменен.']);
 		} else {
 			return response()
-			->json(['message'=>'Произошла ошибка. Попробуйте снова']);
+			->json(['errorMessage'=>'Произошла ошибка. Попробуйте снова']);
 		}
 	}
 
+	public function show($id){
+		$user = User::find($id);
+		return $user;
+	}
 
 	public function delete($id){
 		$deleteUser = User::find($id);
 		$deleteUser->delete();
 
 		return response()
-		->json(['message'=>'Пользователь был успешно удален.']);
+				->json(['message'=>'Пользователь был успешно удален.']);
+		
 	}
 }

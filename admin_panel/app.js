@@ -8,8 +8,15 @@ var app = new Vue({
 		successMessage: "",
 		users: [],
 		areas:[],
-		newUser: {l_name: "", f_name: "", pat_name: "", iin: "", area: "", position: ""},
-		clickedUser: {}
+		newUser: {l_name: "", f_name: "", pat_name: "",
+		iin: "", area_id: "", position: ""},
+		clickedUser: {},
+		selected: '',
+		options: [
+			{ text:'Участок 1', value: '0'},
+			{ text:'Участок 2', value: '1'},
+			{ text:'Участок 3', value: '2'}
+		]
 	},
 
 	mounted: function(){
@@ -37,15 +44,18 @@ var app = new Vue({
 				f_name: formData.get('f_name'),
 				pat_name: formData.get('pat_name'),
 				iin: formData.get('iin'),
-				position: formData.get('position')
+				position: formData.get('position'),
+				area_id: this.selected
 			};
 
 			axios.post("http://localhost:8000/api/user/create", user)
 			.then(function(response){
-				app.newUser = {l_name: "", f_name: "", pat_name: "", iin: "", area: "", position: ""};
+				app.newUser = {l_name: "", f_name: "", pat_name: "", iin: "", area_id: "", position: ""};
 				if(response.data.error){
+					error = true;
 					app.errorMessage = response.data.message;
 				}else{
+					success = true;
 					app.successMessage = response.data.message;
 					app.getAllUsers();
 				}
@@ -55,22 +65,22 @@ var app = new Vue({
 		updateUser: function(){
 			var formData = app.toFormData(app.clickedUser);
 
-
 			var user = { id: formData.get('id'),
 			l_name: formData.get('l_name'),
 			f_name: formData.get('f_name'),
 			pat_name: formData.get('pat_name'),
 			iin: formData.get('iin'),
-			position: formData.get('position')
+			position: formData.get('position'),
+			area_id: this.selected
 		};
 
 		axios.put("http://localhost:8000/api/user/"+ user.id, user)
 		.then(function(response){
 			app.clickedUser = {};
-			if(response.data.error){
-				app.errorMessage = response.data.message;
+			if(response.data.errorMessage){
+				app.errorMessage = response.data.errorMessage;
 			}else{
-				app.successMessage = response.data.message;
+				app.successMessage = response.data.successMessage;
 				app.getAllUsers();
 			}
 		});
@@ -93,6 +103,7 @@ var app = new Vue({
 
 	selectUser: function(user){
 		app.clickedUser = user;
+		console.log(app.clickedUser);
 	},
 
 	toFormData: function(obj){

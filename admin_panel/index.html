@@ -56,7 +56,12 @@
 						<input type="text" name="pat_name" placeholder="Отчество" v-model="newUser.pat_name"><br>
 						<input type="text" name="iin" placeholder="ИИН"
 						v-model="newUser.iin"><br>
-						<input type="text" name="area" placeholder="Участок" v-model="newUser.area"><br>
+						<!-- <input type="text" name="area" placeholder="Участок" v-model="newUser.area_id"><br> -->
+						<select v-model="selected">
+							<option v-for="option in options" v-bind:value="option.value">
+								{{ option.text }}
+							</option>
+						</select>
 						<input type="text" name="position" placeholder="Должность" v-model="newUser.position"><br>
 						<button class="add_user_modal" @click="showingAddModal = false; saveUser();">Добавить</button> 
 					</div>
@@ -77,7 +82,12 @@
 						<input type="text" name="first_name" placeholder="Имя" v-model="clickedUser.f_name"><br>
 						<input type="text" name="pat_name" placeholder="Отчество" v-model="clickedUser.pat_name"><br>
 						<input type="text" name="iin" placeholder="ИИН" v-model="clickedUser.iin"><br>
-						<input type="text" name="area" placeholder="Участок" v-model="clickedUser.area"><br>
+						<!-- <input type="text" name="area" placeholder="Участок" v-model="clickedUser.area"><br> -->
+						<select v-model="selected">
+							<option v-for="option in options" v-bind:value="option.value">
+								{{ option.text }}
+							</option>
+						</select>
 						<input type="text" name="position" placeholder="Должность" v-model="clickedUser.position"><br>
 						<button class="add_user_modal" @click="showingEditModal = false; updateUser();">Изменить</button>
 					</div>

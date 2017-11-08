@@ -43,10 +43,10 @@ class UserController extends Controller
 
 		if($userCreate){
 			return response()
-			->json(['message' => 'Пользователь успешно добавлен.']);
+			->json(['message' => 'Пользователь успешно добавлен.',]);
 		} else {
 			return response()
-			->json(['message' => 'Ошибка.']);
+			->json(['error' => true,'message' => 'Ошибка.']);
 		}
 	}
 
@@ -74,10 +74,10 @@ class UserController extends Controller
 
 		if($userUpdate){
 			return response()
-			->json(['successMessage'=>'Пользователь был успешно изменен.']);
+			->json(['message'=>'Пользователь был успешно изменен.']);
 		} else {
 			return response()
-			->json(['errorMessage'=>'Произошла ошибка. Попробуйте снова']);
+			->json(['error' => true,'message'=>'Произошла ошибка. Попробуйте снова']);
 		}
 	}
 

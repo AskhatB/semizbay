@@ -77,10 +77,10 @@ var app = new Vue({
 		axios.put("http://localhost:8000/api/user/"+ user.id, user)
 		.then(function(response){
 			app.clickedUser = {};
-			if(response.data.errorMessage){
-				app.errorMessage = response.data.errorMessage;
+			if(response.data.error){
+				app.errorMessage = response.data.message;
 			}else{
-				app.successMessage = response.data.successMessage;
+				app.successMessage = response.data.message;
 				app.getAllUsers();
 			}
 		});

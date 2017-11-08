@@ -46,15 +46,16 @@
 			<div class="modal_container">
 				<div class="modal_header">
 					<p class="fleft">Добавление нового пользователя</p>
-					<button class="fright close_modal" @click="showingAddModal = false"><i class="fa fa-times" aria-hidden="true"></i></button>
+					<button class="fright close_modal" @click="showingAddModal = false; clearAll();"><i class="fa fa-times" aria-hidden="true"></i></button>
 					<div class="clear"></div>
 				</div>
 				<div class="modal_content">
 					<div class="adding_form">
-						<input type="text" name="last_name" placeholder="Фамилия" v-model="newUser.l_name"><br>
-						<input type="text" name="first_name" placeholder="Имя" v-model="newUser.f_name"><br>
+						<p class="validate_message" v-if="addValidateMessage">{{addValidateMessage}}</p>
+						<input type="text" name="last_name" required placeholder="Фамилия" v-model="newUser.l_name"><br>
+						<input type="text" name="first_name" required placeholder="Имя" v-model="newUser.f_name"><br>
 						<input type="text" name="pat_name" placeholder="Отчество" v-model="newUser.pat_name"><br>
-						<input type="text" name="iin" placeholder="ИИН"
+						<input type="text" name="iin" required placeholder="ИИН"
 						v-model="newUser.iin"><br>
 						<!-- <input type="text" name="area" placeholder="Участок" v-model="newUser.area_id"><br> -->
 						<select v-model="selected">
@@ -63,7 +64,7 @@
 							</option>
 						</select>
 						<input type="text" name="position" placeholder="Должность" v-model="newUser.position"><br>
-						<button class="add_user_modal" @click="showingAddModal = false; saveUser();">Добавить</button> 
+						<button class="add_user_modal" @click="saveUser();">Добавить</button> 
 					</div>
 				</div>
 			</div>
@@ -73,11 +74,12 @@
 			<div class="modal_container">
 				<div class="modal_header">
 					<p class="fleft">Изменить данные о пользователе</p>
-					<button class="fright close_modal" @click="showingEditModal = false"><i class="fa fa-times" aria-hidden="true"></i></button>
+					<button class="fright close_modal" @click="showingEditModal = false; clearAll()"><i class="fa fa-times" aria-hidden="true"></i></button>
 					<div class="clear"></div>
 				</div>
 				<div class="modal_content">
 					<div class="adding_form">
+						<p class="validate_message" v-if="addValidateMessage">{{addValidateMessage}}</p>
 						<input type="text" name="last_name" placeholder="Фамилия" v-model="clickedUser.l_name"><br>
 						<input type="text" name="first_name" placeholder="Имя" v-model="clickedUser.f_name"><br>
 						<input type="text" name="pat_name" placeholder="Отчество" v-model="clickedUser.pat_name"><br>
@@ -89,7 +91,7 @@
 							</option>
 						</select>
 						<input type="text" name="position" placeholder="Должность" v-model="clickedUser.position"><br>
-						<button class="add_user_modal" @click="showingEditModal = false; updateUser();">Изменить</button>
+						<button class="add_user_modal" @click="updateUser();">Изменить</button>
 					</div>
 				</div>
 			</div>

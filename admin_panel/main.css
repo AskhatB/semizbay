@@ -159,3 +159,13 @@ body{
 	font-family: 'Roboto', sans-serif;
 	font-size: 14px;
 }
+
+.validate_message{
+	width: 100%;
+	padding: 5px;
+	background: #e89a9a;
+	color: #ad5151;
+	border-left: 5px solid #ad5151;
+	box-sizing: border-box;
+	margin-bottom: 15px;
+}

@@ -6,12 +6,13 @@ var app = new Vue({
 		showingDeleteModal: false,
 		errorMessage: "",
 		successMessage: "",
+		addValidateMessage: "",
 		users: [],
 		areas:[],
 		newUser: {l_name: "", f_name: "", pat_name: "",
 		iin: "", area_id: "", position: ""},
 		clickedUser: {},
-		selected: '',
+		selected: null,
 		options: [
 			{ text:'Участок 1', value: '0'},
 			{ text:'Участок 2', value: '1'},
@@ -20,7 +21,6 @@ var app = new Vue({
 	},
 
 	mounted: function(){
-		console.log("mounted");
 		this.getAllUsers();
 	},
 
@@ -37,8 +37,14 @@ var app = new Vue({
 		},
 
 		saveUser: function(){
+			console.log(this.selected);
 			var formData = app.toFormData(app.newUser);
-
+			if(this.newUser.l_name == "" || this.newUser.f_name == "" || this.newUser.iin == "" || this.selected == null){
+				this.addValidateMessage = "Вы не заполнили необходимые поля!";
+				return false;
+			}else{
+			this.showingAddModal = false;
+			this.addValidateMessage = "";
 			var user = { 
 				l_name: formData.get('l_name'),
 				f_name: formData.get('f_name'),
@@ -60,11 +66,18 @@ var app = new Vue({
 					app.getAllUsers();
 				}
 			});
+			}
 		},
 
 		updateUser: function(){
+			console.log(this.clickedUser.l_name);
 			var formData = app.toFormData(app.clickedUser);
-
+			if(this.clickedUser.l_name == "" || this.clickedUser.f_name == "" || this.clickedUser.iin == "" || this.selected == null){
+				this.addValidateMessage = "Вы не заполнили необходимые поля!";
+				return false;
+			}else{
+				this.showingEditModal = false;
+				this.addValidateMessage= "";
 			var user = { id: formData.get('id'),
 			l_name: formData.get('l_name'),
 			f_name: formData.get('f_name'),
@@ -84,6 +97,7 @@ var app = new Vue({
 				app.getAllUsers();
 			}
 		});
+	}
 	},
 
 	deleteUser: function(){
@@ -117,6 +131,12 @@ var app = new Vue({
 	clearMessage: function(){
 		app.errorMessage = "";
 		app.successMessage = "";
+	},
+
+	clearAll: function(){
+		this.addValidateMessage = "";
+		this.newUser = {l_name: "", f_name: "", pat_name: "", iin: "", area_id: "", position: ""};
+		this.getAllUsers();
 	}
 }
 });

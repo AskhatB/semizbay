@@ -348,9 +348,10 @@ class ComposerStaticInitf09afd4f905d0ead103fc99eacdd73f5
     );
 
     public static $classMap = array (
-        'AddAreaIdToUsersTable' => __DIR__ . '/../..' . '/database/migrations/2017_11_03_234959_add_areaId_to_users_table.php',
+        'App\\Area' => __DIR__ . '/../..' . '/app/Area.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\Http\\Controllers\\AreaController' => __DIR__ . '/../..' . '/app/Http/Controllers/AreaController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\IndexController' => __DIR__ . '/../..' . '/app/Http/Controllers/IndexController.php',
         'App\\Http\\Controllers\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/UserController.php',

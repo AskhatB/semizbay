@@ -1,4 +1,4 @@
-//ASKHAT LOKH
+//DANIK LOKH
 var app = new Vue({
 	el: "#main",
 	data: {

@@ -1,4 +1,3 @@
-//DANIK LOKH
 var app = new Vue({
 	el: "#main",
 	data: {
@@ -38,8 +37,6 @@ var app = new Vue({
 		},
 
 		saveUser: function(){
-			console.log(this.selected);
-			// var formData = app.toFormData(app.newUser);
 			if(this.newUser.l_name == "" || this.newUser.f_name == "" || this.newUser.iin == "" || this.selected == null){
 				this.addValidateMessage = "Вы не заполнили необходимые поля!";
 				return false;
@@ -70,9 +67,7 @@ var app = new Vue({
 		},
 
 		updateUser: function(){
-			console.log(this.clickedUser);
 
-			// var formData = app.toFormData(app.clickedUser);
 			if(this.clickedUser.l_name == "" || this.clickedUser.f_name == "" || this.clickedUser.iin == "" || this.selected == null){
 				this.addValidateMessage = "Вы не заполнили необходимые поля!";
 				return false;
@@ -118,11 +113,10 @@ var app = new Vue({
 		selectUser: function(user){
 			app.selected = user.area_id;
 			app.clickedUser = user;
-			console.log(app.clickedUser);
 		},
 
 	// toFormData: function(obj){
-	// 	var form_data = new FormData();
+	// 	vconsolear form_data = new FormData();
 	// 	for(var key in obj){
 	// 		form_data.append(key, obj[key]);
 	// 	}

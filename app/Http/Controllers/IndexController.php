@@ -99,13 +99,7 @@ class IndexController extends Controller
 				'descrip'  => 'required|max:1000',
 				]);
 
-			// if(!isset($request['check'])){
-			// 	$validator = Validator::make($request->all(), [
-			// 		'name'  => 'required|max:255',
-			// 		'phone' => 'required|max:255',
-			// 		'email' => 'required|max:255'
-			// 		]);
-			// }
+		
 			if($validator->fails()){
 				return view('index') -> with(['errors' =>$validator->errors()->all()]);
 			}
@@ -220,16 +214,7 @@ class IndexController extends Controller
 
 	public function profile(Request $request)
 	{   
-		// if (!(session()->has('user'))){
-		// 	return redirect('auth/login');
-		// } else {
-		// 	$value = session()->get('user');
-		// 	$user = User::select('f_name','l_name','pat_name','phone','email','position','iin')->where('iin',$value)->first();
-
-		// 	return view('auth.profile')->with([
-		// 		'user' => $user
-		// 		]);
-		// }
+		
 
 		if (session()->has('user')){
 			$value = session()->get('user');

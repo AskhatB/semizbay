@@ -266,6 +266,6 @@ class IndexController extends Controller
 			->select('new_images.*','areas.nameLocation')
 			->where('new_images.area_id',$id)
 			->get(); 
-		return $events;
+		return view('adminEvents') -> with(['events' => $events]);
 	}
 }

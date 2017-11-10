@@ -26,16 +26,8 @@
    @endif
    @endforeach
    
-   
-   
-  <!-- <div class="content"><img src="img/add_photo.png" alt=""><div class="inf-more">Информация</div></div>
-  <div class="content"><img src="img/add_photo.png" alt=""><div class="inf-more">Информация</div></div>
-  <div class="content"><img src="img/add_photo.png" alt=""><div class="inf-more">Информация</div></div> -->
+
 </div>
-<!-- <script src="libs/jquery-3.1.1.min.js"></script>
-<script src="libs/prefixfree.min.js"></script>
-<script src="libs/jquery.magnific-popup.min.js"></script>
-<script src="libs/jquery.viewportchecker.min.js"></script>
-<script src="js/common.js"></script> -->
+
 </body>
 </html>

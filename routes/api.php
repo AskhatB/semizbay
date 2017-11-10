@@ -17,3 +17,5 @@ Route::put('user/{id}', 'UserController@update');
 Route::get('/user/{id}', 'UserController@show');
 
 Route::delete('user/{id}', 'UserController@delete');
+
+Route::get('/admins', 'AdminController@index');

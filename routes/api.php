@@ -19,3 +19,4 @@ Route::get('/user/{id}', 'UserController@show');
 Route::delete('user/{id}', 'UserController@delete');
 
 Route::get('/admins', 'AdminController@index');
+Route::put('/admin/{id}', 'AdminController@update');

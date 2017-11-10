@@ -262,10 +262,10 @@ class IndexController extends Controller
 
 	public function adminEvents($id){
 		$events = DB::table('new_images')
-			->join('areas', 'new_images.area_id','=','areas.id')
-			->select('new_images.*','areas.nameLocation')
-			->where('new_images.area_id',$id)
-			->get(); 
+		->join('areas', 'new_images.area_id','=','areas.id')
+		->select('new_images.*','areas.nameLocation')
+		->where('new_images.area_id',$id)
+		->get(); 
 		return view('adminEvents') -> with(['events' => $events]);
 	}
 }

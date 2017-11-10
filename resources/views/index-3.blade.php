@@ -6,11 +6,12 @@
   <link rel="shortcut icon" href="" type="image/ico">
   <link href="https://fonts.googleapis.com/css?family=Fira+Sans+Condensed:300,400,700" rel="stylesheet">
   <title>templates</title>
-  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="/css/libs/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="{{ asset('css/main.css') }}">
 </head>
 <body>
   <div class="main">
-    
+
    <a href="http://semyzbay-u.kapsafety.kz/admin/" class="toAdminBtn">Перейти в админ панель</a>
    
    @foreach($new_images as $new_image)
@@ -27,7 +28,7 @@
    @endforeach
    
 
-</div>
+ </div>
 
 </body>
 </html>

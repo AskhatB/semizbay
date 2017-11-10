@@ -1,3 +1,8 @@
+<?php
+if(!isset($_COOKIE['admin'])){
+	header("Location: http://localhost/admin_panel/index.php");
+} 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,6 +18,12 @@
 	<hr>
 	<div id="main">
 		<button class="add_new" @click="showingAddModal = true"><i class="fa fa-plus" aria-hidden="true"></i> Добавить пользователя</button>
+		<a href="#" class="btn_situations"><i class="fa fa-list" aria-hidden="true"></i>
+		Исправить ситуации</a>
+		<a href="#" class="btn_situations"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+		Исправленные ситуации</a>
+		<a href="logout.php" class="btn_situations btn_exit"><i class="fa fa-sign-out" aria-hidden="true"></i>
+		Выход</a>
 		<p class="error_message" v-if="errorMessage">{{errorMessage}}</p>
 		<p class="success_message" v-if="successMessage">{{successMessage}}</p>
 		<div class="users_list_wrapper">
@@ -58,7 +69,7 @@
 						<input type="text" name="iin" required placeholder="ИИН"
 						v-model="newUser.iin"><br>
 						<!-- <input type="text" name="area" placeholder="Участок" v-model="newUser.area_id"><br> -->
-						<select v-model="selected">
+						<select v-model="selected" class="area_select">
 							<option v-for="option in options" v-bind:value="option.value">
 								{{ option.text }}
 							</option>
@@ -85,7 +96,7 @@
 						<input type="text" name="pat_name" placeholder="Отчество" v-model="clickedUser.pat_name"><br>
 						<input type="text" name="iin" placeholder="ИИН" v-model="clickedUser.iin"><br>
 						<!-- <input type="text" name="area" placeholder="Участок" v-model="clickedUser.area"><br> -->
-						<select v-model="selected">
+						<select v-model="selected" class="area_select">
 							<option v-for="option in options" v-bind:value="option.value">
 								{{ option.text }}
 							</option>

@@ -10,7 +10,7 @@ use Redirect;
 use Illuminate\Http\Response;
 class IndexController extends Controller
 {
-//
+
 	public function show(){
 
 		$new_images  = new_image::orderBy('id','DESC')->get();
@@ -24,7 +24,7 @@ class IndexController extends Controller
 			
 			return view('index') -> with([
 				$session = session()->get('status')
-				]);
+			]);
 
 		} else {
 			return view('auth.message');
@@ -82,7 +82,7 @@ class IndexController extends Controller
 				'fixed_file2'=> $_FILES['fixed_file2']['name'],
 				'fixed_file3' => $_FILES['fixed_file3']['name'],
 				'works'=> $request['works']
-				]);
+			]);
 			//return redirect()->back();
 		}
 		return view('index-8');  
@@ -97,9 +97,9 @@ class IndexController extends Controller
 
 				'location'  => 'required|max:255',
 				'descrip'  => 'required|max:1000',
-				]);
+			]);
 
-		
+
 			if($validator->fails()){
 				return view('index') -> with(['errors' =>$validator->errors()->all()]);
 			}
@@ -126,7 +126,7 @@ class IndexController extends Controller
 				$message_error = 'Загрузите фотографию';
 				return view('index')->with([
 					'message_error' => $message_error
-					]);
+				]);
 				exit();
 			}
 			if(session()->has('user')){
@@ -141,15 +141,14 @@ class IndexController extends Controller
 					'file3' => $_FILES['file3']['name'], 
 					'location' => $request['location'],
 					'descrip' => $request['descrip'], 
-				// 'name'=> $request['name'],
 					'phone' => $user['phone'], 
 					'email' => $user['email'],
 					'f_name' => $user['f_name'],
 					'l_name' => $user['l_name'],
 
-					]
+				]
 
-					]);
+			]);
 				return redirect('success');
 
 			} else {
@@ -218,11 +217,18 @@ class IndexController extends Controller
 
 		if (session()->has('user')){
 			$value = session()->get('user');
-			$user = User::select('f_name','l_name','pat_name','phone','email','position','iin')->where('iin',$value)->first();
+
+			$user = DB::table('users')
+			->join('areas', 'users.area_id','=','areas.id')
+			->select('users.*','areas.nameLocation')
+			->where('iin', $value)
+			->get()->first(); 
+
 			if($user){
-			return view('auth.profile')->with([
-				'user' => $user
-				]);} else {
+				return view('auth.profile')->with([
+					'user' => $user
+				]);
+			} else {
 				return view('auth/login');
 			}
 		} else {
@@ -245,7 +251,7 @@ class IndexController extends Controller
 
 		return view('mobile.events') -> with([
 			'events' => $events
-			]);
+		]);
 	}
 	public function mobileInfo($id)
 	{

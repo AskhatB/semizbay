@@ -30,6 +30,8 @@
       <p style="color:#023351; font-size: 13px;">Должность</p>
       <p>{{ $user->position }}</p>
       <br>
+      <p style="color:#023351; font-size: 13px;">Участок</p>
+      <p>{{ $user->nameLocation }}</p>    
       <a href="{{ route('logout') }}" class="done_btn" style=" width: 200px;">Выйти из системы</a>
     </div>
   </div>

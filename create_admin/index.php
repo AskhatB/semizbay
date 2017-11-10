@@ -1,3 +1,8 @@
+<?php
+if(!isset($_COOKIE['admin'])){
+	header("Location: http://localhost/semizbay/admin_panel/index.php");
+} 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +21,6 @@
 					<th>Пароль</th>
 					<th>Участок</th>
 					<th><i class="fa fa-pencil" aria-hidden="true"></i></th>
-					<th><i class="fa fa-trash-o" aria-hidden="true"></i></th>
 				</tr>
 				<tr v-for="admin in admins">
 					<td>{{admin.login}}</td>

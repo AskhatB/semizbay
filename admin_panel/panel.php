@@ -23,6 +23,8 @@ if(!isset($_COOKIE['admin'])){
 		<a href="#" class="btn_situations"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>
 		Исправленные ситуации</a>
 		<a href="logout.php" class="btn_situations btn_exit"><i class="fa fa-sign-out" aria-hidden="true"></i>
+		<a href="#" class="btn_situations"><i class="fa fa-lock" aria-hidden="true"></i>
+		Администраторы</a>
 		Выход</a>
 		<p class="error_message" v-if="errorMessage">{{errorMessage}}</p>
 		<p class="success_message" v-if="successMessage">{{successMessage}}</p>

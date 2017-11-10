@@ -10,8 +10,7 @@ var app = new Vue({
 		admins: [],
 		areas:[],
 		newUser: {login: "", password: "", nameLocation: ""},
-		clickedAdmin: {},
-		selected: null
+		clickedAdmin: {}
 	},
 
 	mounted: function(){
@@ -29,16 +28,16 @@ var app = new Vue({
 			});
 		},
 		updateUser: function(){
-			if(this.clickedAdmin.login == "" || this.clickedAdmin.password == "" || this.clickedAdmin.iin == ""){
+			if(this.clickedAdmin.login == "" || this.clickedAdmin.password == ""){
 				this.addValidateMessage = "Вы не заполнили необходимые поля!";
 				return false;
 			}else{
 				this.showingEditModal = false;
 				this.addValidateMessage= "";
-				var admin = { id: this.clickedAdmin.id,
+				var admin = { 
+					id: this.clickedAdmin.id,
 					login: this.clickedAdmin.login,
-					password: this.clickedAdmin.password,
-					nameLocation: this.clickedAdmin.nameLocation
+					password: this.clickedAdmin.password
 				};
 
 				axios.put("http://localhost:8000/api/admins/"+ admin.id, admin)
@@ -52,18 +51,6 @@ var app = new Vue({
 					}
 				});
 			}
-		},
-		deleteUser: function(){
-			axios.delete("http://localhost:8000/api/admins/" + this.clickedAdmin.id)
-			.then(function(response){
-				app.clickedAdmin = {};
-				if(response.data.error){
-					app.errorMessage = response.data.message;
-				}else{
-					app.successMessage = response.data.message;
-					app.getAllAdmins();
-				}
-			});
 		},
 		selectUser: function(user){
 			app.clickedAdmin = user;

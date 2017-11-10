@@ -14,7 +14,7 @@ if(empty($myrow['login'])){
 	if($myrow['password']==$password){ 
 		$cookie_name = $_POST['login']; 
 		setcookie("admin",$cookie_name,time() + (86400 * 30)); 
-		header("Location: http://localhost/admin_panel/panel.php"); 
+		header("Location: http://localhost/semizbay/admin_panel/panel.php"); 
 	} else { 
 		echo "<SCRIPT type='text/javascript'> //not showing me this 
 		alert('Ошибка. Неправильный логин или пароль.'); 

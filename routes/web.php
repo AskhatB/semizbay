@@ -15,8 +15,8 @@
 //     return view('welcome');
 // });
 Route::get('/','IndexController@message')->name('report');
-//Route::get('/','IndexController@index');
 Route::get('events','IndexController@show')->name('events');
+Route::get('events/{id}' ,'IndexController@adminEvents');
 Route::post('/fixSituation/{id}','IndexController@fixSituation')->name('fixSituation');
 Route::get('/fix_event/{id}','IndexController@fixShow')->name('fixShow');
 Route::get('/info/{id}','IndexController@info')->name('infoShow');

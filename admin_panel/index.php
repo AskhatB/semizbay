@@ -1,6 +1,6 @@
 <?php
 if(isset($_COOKIE['admin'])){
-	header("Location: http://localhost/admin_panel/panel.php");
+	header("Location: http://localhost/semizbay/admin_panel/panel.php");
 }
 ?>
 <!DOCTYPE html>

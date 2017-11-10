@@ -132,7 +132,7 @@ class IndexController extends Controller
 			if(session()->has('user')){
 				session()->flash('status', 'Спасибо! Ваше сообщение успешно отправлено!');
 				$value = session()->get('user');
-				$user = User::select('f_name','l_name','phone','email','position')->where('iin',$value)->first();
+				$user = User::select('f_name','l_name','phone','email','position','area_id')->where('iin',$value)->first();
 
 				DB::table('new_images')->insert([
 
@@ -145,9 +145,8 @@ class IndexController extends Controller
 					'email' => $user['email'],
 					'f_name' => $user['f_name'],
 					'l_name' => $user['l_name'],
-
+					'area_id' => $user['area_id']
 				]
-
 			]);
 				return redirect('success');
 
@@ -259,5 +258,14 @@ class IndexController extends Controller
 		$situation = new_image::select(['id','file1','file2','file3','location','descrip','f_name','l_name','phone','email'])->where('id',$id)->first();
 		return view('mobile.info')->with(['situation' => $situation]);
 
+	}
+
+	public function adminEvents($id){
+		$events = DB::table('new_images')
+			->join('areas', 'new_images.area_id','=','areas.id')
+			->select('new_images.*','areas.nameLocation')
+			->where('new_images.area_id',$id)
+			->get(); 
+		return $events;
 	}
 }

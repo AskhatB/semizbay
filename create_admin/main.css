@@ -1,0 +1,231 @@
+body{
+	margin: 0;
+	padding: 0;
+	font-family: 'Roboto', sans-serif;
+	background: #E2E3E1;
+}
+
+*{
+	padding: 0;
+	margin: 0;
+}
+
+.fright{float: right;}
+.fleft{float: left;}
+.clear{clear: both;}
+
+.list{
+	width: 100%;
+	clear: both;
+	margin-top: 50px;
+	table-layout: fixed;
+}
+
+.list th{
+	background: #009AFC;
+	color: #fff;
+	height: 40px;
+	word-wrap: break-word;
+}
+
+.list td{
+	background: #fff;
+	word-wrap: break-word;
+	text-align: center;
+	padding: 15px 15px;
+}
+
+.modal_bg{
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	background: rgba(0, 0, 0, 0.5);
+	transition: all 1s;
+}
+
+.modal_container{
+	width: 400px;
+	margin: 60px auto;
+	background: #fff;
+	-webkit-box-shadow: 0 10px 6px -6px #777;
+    -moz-box-shadow: 0 10px 6px -6px #777;
+    box-shadow: 0 10px 6px -6px #777;
+    border-radius: 5px;
+}
+
+.modal_header{
+	padding: 20px;
+	background: #009AFC;
+	color: #fff;
+	border-radius: 5px 5px 0 0;
+}
+
+.modal_content{
+	clear: both;
+	min-height: 300px;
+	padding: 40px;
+}
+
+.close_modal{
+	color: #fff;
+	background: none;
+	border: none;
+	outline: none;
+	cursor: pointer;
+}
+
+.add_user_modal{
+	background: #F59304;
+	margin-top: 10px;
+	border: none;
+	outline: none;
+	color: #fff;
+	width: 100%;
+	height: 40px;
+	cursor: pointer;
+	font-family: 'Roboto', sans-serif;
+	font-size: 14px;
+	border-radius: 3px;
+}
+
+.adding_form input{
+	width: 100%;
+	height: 30px;
+	outline: none;
+	margin-bottom: 5px;
+	padding: 15px 5px;
+	box-sizing: border-box;
+}
+
+.error_message, .success_message{
+	margin-left: 50px;
+	margin-right: 50px;
+	padding: 10px;
+	margin-top: 20px;
+}
+
+.error_message{
+	background: #e89a9a;
+	color: #ad5151;
+	border-left: 5px solid #ad5151;
+}
+
+.success_message{
+	background: #6cd476;
+	color: #266c2d;
+	border-left: 5px solid #266c2d;
+}
+
+.add_new{
+	width: 200px;
+	height: 40px;
+	margin: 15px 0 0 15px;
+	background: #009AFC;
+	font-size: 14px;
+	border: 0;
+	color: #fff;
+	font-family: 'Roboto', sans-serif;
+	cursor: pointer;
+}
+
+.list tr td button{
+	padding: 10px 15px;
+	background: #009AFC;
+	font-family: 'Roboto', sans-serif;
+	font-size: 14px;
+	border: 0;
+	color:#fff;
+	cursor: pointer;
+}
+
+.text_heading{
+	text-transform: uppercase;
+	padding: 15px;
+	color: #474747;
+}
+
+.text_paragraph{
+	padding: 0 0 15px 15px;
+	color: #474747;
+}
+
+.delete_btn_{
+	width: 155px;
+	height: 50px;
+	border: 0;
+	outline: none;
+	cursor: pointer;
+	font-family: 'Roboto', sans-serif;
+	font-size: 14px;
+}
+
+.validate_message{
+	width: 100%;
+	padding: 5px;
+	background: #e89a9a;
+	color: #ad5151;
+	border-left: 5px solid #ad5151;
+	box-sizing: border-box;
+	margin-bottom: 15px;
+}
+
+.area_select{
+	width: 100%;
+	height: 30px;
+	outline: none;
+	margin-bottom: 5px;
+}
+
+.btn_situations{
+	display: block;
+	padding: 0 10px 0 10px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	float: left;	
+	background: #009AFC;
+	color: #fff;
+	text-decoration: none;
+	font-size: 14px;
+	margin: 15px 0 0 15px;
+}
+
+.btn_exit{
+	float: right !important;
+	margin-right: 20px;
+}
+
+.loginForm{
+	display: block;
+	width: 250px;
+	padding: 10px;
+	margin: 85px auto;
+	text-align: center;
+}
+
+.enter_admin_header{
+	font-size: 20px;
+	color: #222;
+	text-transform: uppercase;
+}
+
+.loginForm > input{
+	width: 100%;
+	height: 40px;
+	margin-top: 15px;
+	outline: none;
+	padding: 15px;
+	box-sizing: border-box;
+}
+
+input[type="submit"]{
+	background: #009AFC;
+	border: none;
+	outline: none;
+	color: #fff;
+	font-size: 14px;
+	cursor: pointer;
+	padding:0;
+}

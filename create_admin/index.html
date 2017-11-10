@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Система контроля адмистраторов</title>
+	<link rel="stylesheet" href="main.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<script src="https://use.fontawesome.com/7cda8fcf2d.js"></script>
+</head>
+<body>
+	<div id="main">
+		<div class="users_list_wrapper">
+			<table class="list">
+				<tr>
+					<th>Логин</th>
+					<th>Пароль</th>
+					<th>Участок</th>
+					<th><i class="fa fa-pencil" aria-hidden="true"></i></th>
+					<th><i class="fa fa-trash-o" aria-hidden="true"></i></th>
+				</tr>
+				<tr v-for="admin in admins">
+					<td>{{admin.login}}</td>
+					<td>{{admin.password}}</td>
+					<td>{{admin.nameLocation}}</td>
+					<td><button @click="showingEditModal = true; selectUser(admin)"><i class="fa fa-pencil" aria-hidden="true"></i>
+					Исправить</button></td>
+					<td><button @click="showingDeleteModal = true; selectUser(admin)"><i class="fa fa-trash-o" aria-hidden="true"></i>
+					Удалить</button></td>
+				</tr>
+			</table>
+		</div>
+
+		<div class="modal_bg" id="edit_modal" v-if="showingEditModal">
+			<div class="modal_container">
+				<div class="modal_header">
+					<p class="fleft">Изменить данные о пользователе</p>
+					<button class="fright close_modal" @click="showingEditModal = false; clearAll()"><i class="fa fa-times" aria-hidden="true"></i></button>
+					<div class="clear"></div>
+				</div>
+				<div class="modal_content">
+					<div class="adding_form">
+						<p class="validate_message" v-if="addValidateMessage">{{addValidateMessage}}</p>
+						<input type="text" name="last_name" placeholder="Фамилия" v-model="clickedUser.l_name"><br>
+						<input type="text" name="first_name" placeholder="Имя" v-model="clickedUser.f_name"><br>
+						<input type="text" name="pat_name" placeholder="Отчество" v-model="clickedUser.pat_name"><br>
+						<input type="text" name="iin" placeholder="ИИН" v-model="clickedUser.iin"><br>
+						<!-- <input type="text" name="area" placeholder="Участок" v-model="clickedUser.area"><br> -->
+						<select v-model="selected" class="area_select">
+							<option v-for="option in options" v-bind:value="option.value">
+								{{ option.text }}
+							</option>
+						</select>
+						<input type="text" name="position" placeholder="Должность" v-model="clickedUser.position"><br>
+						<button class="add_user_modal" @click="updateUser();">Изменить</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

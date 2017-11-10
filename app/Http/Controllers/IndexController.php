@@ -33,7 +33,14 @@ class IndexController extends Controller
 	}
 	public function info($id){
 
-		$situation = new_image::select(['id','file1','file2','file3','location','descrip','f_name','l_name','phone','email'])->where('id',$id)->first();
+		 // $situation = new_image::select(['id','file1','file2','file3','location','descrip','f_name','l_name','phone','email'])->where('id',$id)->first();
+
+		$situation = DB::table('new_images')
+		->join('areas', 'new_images.area_id','=','areas.id')
+		->select('new_images.*','areas.nameLocation')
+		->where('new_images.id',$id)
+		->get()->first(); 
+		
 		return view('index-1')->with(['situation' => $situation]);
 
 	}
@@ -265,6 +272,7 @@ class IndexController extends Controller
 		->join('areas', 'new_images.area_id','=','areas.id')
 		->select('new_images.*','areas.nameLocation')
 		->where('new_images.area_id',$id)
+		->orderBy('id','DESC')
 		->get(); 
 		return view('adminEvents') -> with(['events' => $events]);
 	}

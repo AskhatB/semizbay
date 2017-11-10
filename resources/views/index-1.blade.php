@@ -44,14 +44,10 @@
       <p style="color:#023351; font-size: 13px;">Электронный адрес</p>
       <p>{{ $situation->email }}</p>
       <br>
-      <!-- <label for="location"><p style="color:#023351; font-weight: 700;">Местоположение ситуации</p>Указать название места, адрес и место в здании</label><br><textarea name="location" id="location"></textarea>
-      <label for="discrip"><p style="color:#023351; font-weight: 700;">Привести описание ситуации</p></label><textarea name="discrip" id="discrip"></textarea>
-      <p style="color:#023351; font-weight: 700;">Как с вами связаться?</p><br>
-      <label for="name">Ваше имя</label><textarea name="name" id="name"></textarea>
-      <label for="phone">Ваш контактный номер телефона</label><textarea name="phone" id="phone"></textarea>
-      <label for="e-mail">Ваш адрес элекстронной почты</label><textarea name="e-mail" id="e-mail"></textarea>
-      <input type="checkbox" id="anon" class="anon"><label for="anon">Отправить инкогнито</label><br><br> -->
-      
+      <p style="color:#023351; font-size: 13px;">Участок</p>
+      <p>{{ $situation->nameLocation }}</p>
+      <br>
+
       <a href="{{ route('fixShow',['id'=>$situation->id]) }}"><input type="submit" value="Исправить" class="submit"> </a>
       
     </div>

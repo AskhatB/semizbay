@@ -9,7 +9,6 @@ var app = new Vue({
 		addValidateMessage: "",
 		admins: [],
 		areas:[],
-		newUser: {login: "", password: "", nameLocation: ""},
 		clickedAdmin: {}
 	},
 
@@ -40,7 +39,9 @@ var app = new Vue({
 					password: this.clickedAdmin.password
 				};
 
-				axios.put("http://localhost:8000/api/admins/"+ admin.id, admin)
+
+				console.log(admin);
+				axios.put("http://localhost:8000/api/admin/"+ admin.id, admin)
 				.then(function(response){
 					app.clickedAdmin = {};
 					if(response.data.error){

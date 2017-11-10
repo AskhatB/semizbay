@@ -1,6 +1,6 @@
 <?php
 if(!isset($_COOKIE['admin'])){
-	header("Location: http://localhost/semizbay/admin_panel/index.php");
+	header("Location: http://localhost/semizbay/admin/index.php");
 } 
 ?>
 <!DOCTYPE html>
@@ -43,7 +43,7 @@ if(!isset($_COOKIE['admin'])){
 					<div class="adding_form">
 						<p class="validate_message" v-if="addValidateMessage">{{addValidateMessage}}</p>
 						<input type="text" name="login" placeholder="Логин" v-model="clickedAdmin.login"><br>
-						<input type="text" name="first_name" placeholder="Имя" v-model="clickedAdmin.password"><br>
+						<input type="text" name="first_name" placeholder="Пароль" v-model="clickedAdmin.password"><br>
 						<button class="add_user_modal" @click="updateUser();">Изменить</button>
 					</div>
 				</div>

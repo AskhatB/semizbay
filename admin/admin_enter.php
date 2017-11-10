@@ -14,7 +14,7 @@ if(empty($myrow['login'])){
 	if($myrow['password']==$password && $myrow['isAdmin'] == 0){ 
 		$cookie_name = $_POST['login']; 
 		setcookie("admin",$cookie_name,time() + (86400 * 30)); 
-		header("Location: http://localhost/semizbay/admin_panel/panel.php"); 
+		header("Location: http://localhost/semizbay/admin/panel.php"); 
 	} else if($myrow['password'] == $password && $myrow['isAdmin'] == 1){
 		$cookie_name = $_POST['login']; 
 		setcookie("admin2",$cookie_name,time() + (86400 * 30)); 

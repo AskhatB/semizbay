@@ -21,16 +21,15 @@ class AdminController extends Controller
 		$admin = new Admin;
 
 		$admin->id = $id;
-		$user->login = $request->login;
-		$user->password = $request->password;
+		$admin->login = $request->login;
+		$admin->password = $request->password;
 	
 
 		$adminUpdate = DB::table('admins')
 		->where('id', $admin->id)
 		->update(['login'=>$admin->login,
 			'password'=>$admin->password
-			
-		]);
+			]);
 
 		if($adminUpdate){
 			return response()
@@ -40,4 +39,8 @@ class AdminController extends Controller
 			->json(['error' => true,'message'=>'Произошла ошибка. Попробуйте снова']);
 		}
 	}
-}
+
+	public function show($id){
+		$admin = Admin::find($id);
+		return $admin;
+	}}

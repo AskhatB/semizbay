@@ -19,7 +19,7 @@ var app = new Vue({
 	},
 	methods: {
 		getAllAdmins: function(){
-			axios.get("http://localhost:8000/api/users")
+			axios.get("http://localhost:8000/api/admins")
 			.then(function(response){
 				if(response.data.error){
 					app.errorMessage = response.data.message;
@@ -41,7 +41,7 @@ var app = new Vue({
 					nameLocation: this.clickedAdmin.nameLocation
 				};
 
-				axios.put("http://localhost:8000/api/user/"+ admin.id, admin)
+				axios.put("http://localhost:8000/api/admins/"+ admin.id, admin)
 				.then(function(response){
 					app.clickedAdmin = {};
 					if(response.data.error){
@@ -54,7 +54,7 @@ var app = new Vue({
 			}
 		},
 		deleteUser: function(){
-			axios.delete("http://localhost:8000/api/user/" + this.clickedAdmin.id)
+			axios.delete("http://localhost:8000/api/admins/" + this.clickedAdmin.id)
 			.then(function(response){
 				app.clickedAdmin = {};
 				if(response.data.error){

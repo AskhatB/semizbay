@@ -24,8 +24,6 @@
 					<td>{{admin.nameLocation}}</td>
 					<td><button @click="showingEditModal = true; selectUser(admin)"><i class="fa fa-pencil" aria-hidden="true"></i>
 					Исправить</button></td>
-					<td><button @click="showingDeleteModal = true; selectUser(admin)"><i class="fa fa-trash-o" aria-hidden="true"></i>
-					Удалить</button></td>
 				</tr>
 			</table>
 		</div>
@@ -40,22 +38,16 @@
 				<div class="modal_content">
 					<div class="adding_form">
 						<p class="validate_message" v-if="addValidateMessage">{{addValidateMessage}}</p>
-						<input type="text" name="last_name" placeholder="Фамилия" v-model="clickedUser.l_name"><br>
-						<input type="text" name="first_name" placeholder="Имя" v-model="clickedUser.f_name"><br>
-						<input type="text" name="pat_name" placeholder="Отчество" v-model="clickedUser.pat_name"><br>
-						<input type="text" name="iin" placeholder="ИИН" v-model="clickedUser.iin"><br>
-						<!-- <input type="text" name="area" placeholder="Участок" v-model="clickedUser.area"><br> -->
-						<select v-model="selected" class="area_select">
-							<option v-for="option in options" v-bind:value="option.value">
-								{{ option.text }}
-							</option>
-						</select>
-						<input type="text" name="position" placeholder="Должность" v-model="clickedUser.position"><br>
+						<input type="text" name="login" placeholder="Логин" v-model="clickedAdmin.login"><br>
+						<input type="text" name="first_name" placeholder="Имя" v-model="clickedAdmin.password"><br>
 						<button class="add_user_modal" @click="updateUser();">Изменить</button>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script src="vue.js"></script>
+	<script src="app.js"></script>
 </body>
 </html>

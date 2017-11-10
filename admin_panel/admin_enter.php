@@ -11,10 +11,14 @@ if(empty($myrow['login'])){
 	</SCRIPT>"; 
 	exit(); 
 } else { 
-	if($myrow['password']==$password){ 
+	if($myrow['password']==$password && $myrow['isAdmin'] == 0){ 
 		$cookie_name = $_POST['login']; 
 		setcookie("admin",$cookie_name,time() + (86400 * 30)); 
 		header("Location: http://localhost/semizbay/admin_panel/panel.php"); 
+	} else if($myrow['password'] == $password && $myrow['isAdmin'] == 1){
+		$cookie_name = $_POST['login']; 
+		setcookie("admin",$cookie_name,time() + (86400 * 30)); 
+		header("Location: http://localhost:8000/events/".$myrow['area_id']); 
 	} else { 
 		echo "<SCRIPT type='text/javascript'> //not showing me this 
 		alert('Ошибка. Неправильный логин или пароль.'); 
